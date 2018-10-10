@@ -6,6 +6,7 @@ import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 import LinksScreen from '../screens/LinksScreen';
 import SettingsScreen from '../screens/SettingsScreen';
+import TodayScreen from '../screens/TodayScreen'
 
 const HomeStack = createStackNavigator({
   Home: HomeScreen,
@@ -13,16 +14,7 @@ const HomeStack = createStackNavigator({
 
 HomeStack.navigationOptions = {
   tabBarLabel: 'Home',
-  tabBarIcon: ({ focused }) => (
-    <TabBarIcon
-      focused={focused}
-      name={
-        Platform.OS === 'ios'
-          ? `ios-information-circle${focused ? '' : '-outline'}`
-          : 'md-information-circle'
-      }
-    />
-  ),
+  tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="home" />,
 };
 
 const LinksStack = createStackNavigator({
@@ -30,13 +22,8 @@ const LinksStack = createStackNavigator({
 });
 
 LinksStack.navigationOptions = {
-  tabBarLabel: 'Links',
-  tabBarIcon: ({ focused }) => (
-    <TabBarIcon
-      focused={focused}
-      name={Platform.OS === 'ios' ? `ios-link${focused ? '' : '-outline'}` : 'md-link'}
-    />
-  ),
+  tabBarLabel: 'Add',
+  tabBarIcon: ({ focused }) => <TabBarIcon focused={focused} name="plus" />,
 };
 
 const SettingsStack = createStackNavigator({
@@ -48,12 +35,20 @@ SettingsStack.navigationOptions = {
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
-      name={Platform.OS === 'ios' ? `ios-options${focused ? '' : '-outline'}` : 'md-options'}
+      name='settings'
     />
   ),
 };
 
+const TodayStack = createStackNavigator({ Today: TodayScreen })
+
+TodayStack.navigationOptions = {
+  tabBarLabel: 'Today',
+  tabBarIcon: ({focused}) => <TabBarIcon focused={focused} name='activity' />
+}
+
 export default createBottomTabNavigator({
+  TodayStack,
   HomeStack,
   LinksStack,
   SettingsStack,
