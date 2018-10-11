@@ -1,0 +1,38 @@
+{
+  "parser": "babel-eslint",
+  "extends": ["airbnb", "prettier", "prettier/react"],
+  "plugins": ["prettier"],
+  "env": {
+    "jest": true
+  },
+  "globals": {
+    "__DEV__": true
+  },
+  "rules": {
+    "no-unused-expressions": 0,
+    "prettier/prettier": [
+      "error",
+      {
+        "bracketSpacing": true,
+        "tabWidth": 2,
+        "trailingComma": "all"
+      }
+    ],
+    "import/order": [
+      "error",
+      {
+        "groups": [["builtin", "external"], ["internal", "parent", "sibling", "index"]]
+      }
+    ],
+    "import/no-extraneous-dependencies": "off",
+    "camelcase": "off", // GraphQL
+    "react/jsx-filename-extension": ["error", { "extensions": [".js"] }], // Don't use jsx
+    "react/prefer-stateless-function": [2, { "ignorePureComponents": true }],
+    "react/require-default-props": "off" // Somehow semantically wrong
+  },
+  "settings": {
+    "import/resolver": {
+      "babel-module": {}
+    }
+  }
+}
