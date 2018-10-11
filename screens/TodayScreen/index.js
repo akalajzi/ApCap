@@ -8,8 +8,10 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
+import { Button } from '@shoutem/ui';
 
-import { MonoText } from '../../components/StyledText';
+import { MonoText } from 'components/StyledText';
+import styles from "./styles"
 
 export default class TodayScreen extends React.Component {
   static navigationOptions = {
@@ -35,35 +37,13 @@ export default class TodayScreen extends React.Component {
             <Text style={styles.getStartedText}>
               These be today issues
             </Text>
+            <Button stleName="secondary">
+              <Text>CHECK IN HERE</Text>
+            </Button>
           </View>
+
         </ScrollView>
       </View>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-  },
-  contentContainer: {
-    paddingTop: 30,
-  },
-  welcomeContainer: {
-    alignItems: 'center',
-    marginTop: 10,
-    marginBottom: 20,
-  },
-  welcomeImage: {
-    width: 100,
-    height: 80,
-    resizeMode: 'contain',
-    marginTop: 3,
-    marginLeft: -10,
-  },
-  getStartedContainer: {
-    alignItems: 'center',
-    marginHorizontal: 50,
-  },
-});
