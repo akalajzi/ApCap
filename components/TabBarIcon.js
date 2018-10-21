@@ -1,7 +1,7 @@
 import React from 'react';
 import { Icon } from 'expo';
 
-import Colors from 'constants/Colors';
+import theme from 'themes/default';
 
 export default class TabBarIcon extends React.Component {
   render() {
@@ -10,7 +10,7 @@ export default class TabBarIcon extends React.Component {
         name={this.props.name}
         size={24}
         style={{ marginBottom: -3 }}
-        color={this.props.focused ? Colors.tabIconSelected : Colors.tabIconDefault}
+        color={this.props.focused ? theme.icons.tabIconSelected : theme.icons.tabIcon}
       />
     );
   }
